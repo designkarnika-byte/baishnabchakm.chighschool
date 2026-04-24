@@ -1,0 +1,134 @@
+type UpdateTeacherArgs = 
+ record {
+   email: text;
+   id: TeacherId;
+   name: text;
+   nameBengali: text;
+   phone: text;
+   qualification: text;
+   subject: text;
+   subjectBengali: text;
+ };
+type UpdateStudentArgs = 
+ record {
+   class: text;
+   email: text;
+   id: StudentId;
+   name: text;
+   nameBengali: text;
+   rollNumber: text;
+   section: text;
+ };
+type UpdateNoticeArgs = 
+ record {
+   category: NoticeCategory;
+   content: text;
+   id: NoticeId;
+   title: text;
+ };
+type Timestamp = int;
+type TeacherId = nat;
+type Teacher = 
+ record {
+   email: text;
+   id: TeacherId;
+   name: text;
+   nameBengali: text;
+   phone: text;
+   qualification: text;
+   subject: text;
+   subjectBengali: text;
+ };
+type StudentId = nat;
+type Student = 
+ record {
+   class: text;
+   email: text;
+   id: StudentId;
+   name: text;
+   nameBengali: text;
+   rollNumber: text;
+   section: text;
+ };
+type NoticeId = nat;
+type NoticeCategory = 
+ variant {
+   Academic;
+   Alert;
+   General;
+   Holiday;
+   Other;
+ };
+type Notice = 
+ record {
+   authorPrincipal: principal;
+   category: NoticeCategory;
+   content: text;
+   createdAt: Timestamp;
+   id: NoticeId;
+   pinned: bool;
+   title: text;
+   updatedAt: Timestamp;
+ };
+type CreateTeacherArgs = 
+ record {
+   email: text;
+   name: text;
+   nameBengali: text;
+   phone: text;
+   qualification: text;
+   subject: text;
+   subjectBengali: text;
+ };
+type CreateStudentArgs = 
+ record {
+   class: text;
+   email: text;
+   name: text;
+   nameBengali: text;
+   rollNumber: text;
+   section: text;
+ };
+type CreateNoticeArgs = 
+ record {
+   category: NoticeCategory;
+   content: text;
+   title: text;
+ };
+type CreateContactArgs = 
+ record {
+   email: text;
+   message: text;
+   name: text;
+ };
+type ContactMessage = 
+ record {
+   createdAt: Timestamp;
+   email: text;
+   id: ContactId;
+   message: text;
+   name: text;
+ };
+type ContactId = nat;
+service : {
+  createNotice: (args: CreateNoticeArgs) -> (Notice);
+  createStudent: (args: CreateStudentArgs) -> (Student);
+  createTeacher: (args: CreateTeacherArgs) -> (Teacher);
+  deleteNotice: (id: NoticeId) -> (bool);
+  deleteStudent: (id: StudentId) -> (bool);
+  deleteTeacher: (id: TeacherId) -> (bool);
+  getAllStudents: () -> (vec Student);
+  getAllTeachers: () -> (vec Teacher);
+  getContactMessages: () -> (vec ContactMessage);
+  getNoticeById: (id: NoticeId) -> (opt Notice) query;
+  getNotices: () -> (vec Notice) query;
+  getStudents: () -> (vec Student);
+  getTeachers: () -> (vec Teacher);
+  isAdmin: () -> (bool) query;
+  pinNotice: (id: NoticeId, pinned: bool) -> (bool);
+  setAdmin: (newAdmin: principal) -> (bool);
+  submitContactMessage: (args: CreateContactArgs) -> (ContactMessage);
+  updateNotice: (args: UpdateNoticeArgs) -> (bool);
+  updateStudent: (args: UpdateStudentArgs) -> (bool);
+  updateTeacher: (args: UpdateTeacherArgs) -> (bool);
+}

@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: Fraunces;
+    --font-body: Lora;
+    --font-mono: GeistMono;
+    --radius: 0.5rem;
+
+    /* Warm paper background + deep teal primary */
+    --background: 0.97 0.015 85;
+    --foreground: 0.14 0.02 255;
+    --card: 0.99 0.005 80;
+    --card-foreground: 0.14 0.02 255;
+    --popover: 0.99 0.005 80;
+    --popover-foreground: 0.14 0.02 255;
+
+    /* Deep teal primary */
+    --primary: 0.32 0.08 195;
+    --primary-foreground: 0.98 0 0;
+
+    --secondary: 0.93 0.02 85;
+    --secondary-foreground: 0.22 0.02 255;
+    --muted: 0.93 0.015 80;
+    --muted-foreground: 0.48 0.02 250;
+
+    /* Gold accent */
+    --accent: 0.72 0.16 75;
+    --accent-foreground: 0.1 0.02 40;
+
+    --destructive: 0.52 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.88 0.02 80;
+    --input: 0.9 0.02 80;
+    --ring: 0.32 0.08 195;
+
+    --chart-1: 0.32 0.08 195;
+    --chart-2: 0.72 0.16 75;
+    --chart-3: 0.55 0.12 180;
+    --chart-4: 0.65 0.14 35;
+    --chart-5: 0.5 0.1 310;
+
+    --sidebar: 0.95 0.02 85;
+    --sidebar-foreground: 0.14 0.02 255;
+    --sidebar-primary: 0.32 0.08 195;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.72 0.16 75;
+    --sidebar-accent-foreground: 0.1 0.02 40;
+    --sidebar-border: 0.88 0.02 80;
+    --sidebar-ring: 0.32 0.08 195;
+
+    /* Custom teal tokens */
+    --teal-deep: 0.28 0.09 195;
+    --teal-mid: 0.38 0.1 195;
+    --gold: 0.72 0.16 75;
+    --gold-deep: 0.55 0.18 68;
+    --paper: 0.96 0.02 85;
+    --paper-dark: 0.9 0.03 80;
+  }
+
+  .dark {
+    --background: 0.13 0.01 240;
+    --foreground: 0.93 0.02 250;
+    --card: 0.18 0.01 245;
+    --card-foreground: 0.93 0.02 250;
+    --popover: 0.22 0.01 250;
+    --popover-foreground: 0.93 0.02 250;
+
+    --primary: 0.55 0.12 195;
+    --primary-foreground: 0.13 0 0;
+
+    --secondary: 0.22 0.01 245;
+    --secondary-foreground: 0.86 0.02 250;
+    --muted: 0.22 0.01 250;
+    --muted-foreground: 0.6 0.02 250;
+
+    --accent: 0.78 0.18 72;
+    --accent-foreground: 0.13 0 0;
+
+    --destructive: 0.62 0.2 22;
+    --destructive-foreground: 0.13 0 0;
+
+    --border: 0.28 0.01 245;
+    --input: 0.28 0.01 245;
+    --ring: 0.55 0.12 195;
+
+    --chart-1: 0.55 0.12 195;
+    --chart-2: 0.78 0.18 72;
+    --chart-3: 0.65 0.14 180;
+    --chart-4: 0.7 0.16 35;
+    --chart-5: 0.56 0.13 310;
+
+    --sidebar: 0.18 0.01 245;
+    --sidebar-foreground: 0.93 0.02 250;
+    --sidebar-primary: 0.55 0.12 195;
+    --sidebar-primary-foreground: 0.13 0 0;
+    --sidebar-accent: 0.78 0.18 72;
+    --sidebar-accent-foreground: 0.13 0 0;
+    --sidebar-border: 0.28 0.01 245;
+    --sidebar-ring: 0.55 0.12 195;
+
+    --teal-deep: 0.22 0.08 195;
+    --teal-mid: 0.4 0.1 195;
+    --gold: 0.78 0.18 72;
+    --gold-deep: 0.62 0.2 66;
+    --paper: 0.18 0.01 245;
+    --paper-dark: 0.22 0.01 250;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@font-face {
+  font-family: Fraunces;
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Lora;
+  src: url("/assets/fonts/Lora.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: GeistMono;
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .shadow-elevated {
+    box-shadow: 0 4px 12px oklch(var(--foreground) / 0.08);
+  }
+
+  .shadow-subtle {
+    box-shadow: 0 1px 3px oklch(var(--foreground) / 0.05);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .font-display {
+    font-family: var(--font-display), Georgia, serif;
+  }
+
+  .font-body {
+    font-family: var(--font-body), Georgia, serif;
+  }
+
+  .font-mono {
+    font-family: var(--font-mono), monospace;
+  }
+
+  .bg-teal-deep {
+    background-color: oklch(var(--teal-deep));
+  }
+
+  .bg-teal-mid {
+    background-color: oklch(var(--teal-mid));
+  }
+
+  .bg-paper {
+    background-color: oklch(var(--paper));
+  }
+
+  .text-gold {
+    color: oklch(var(--gold));
+  }
+
+  .border-gold {
+    border-color: oklch(var(--gold));
+  }
+
+  .notice-pinned {
+    border-left: 3px solid oklch(var(--gold));
+    background: oklch(var(--card) / 1);
+  }
+
+  .entrance-fade {
+    animation: entranceFade 0.5s ease-out both;
+  }
+
+  .entrance-slide-up {
+    animation: slideUp 0.5s ease-out both;
+  }
+
+  @keyframes entranceFade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .entrance-fade,
+    .entrance-slide-up {
+      animation: none;
+    }
+    .transition-smooth {
+      transition: none;
+    }
+  }
+}

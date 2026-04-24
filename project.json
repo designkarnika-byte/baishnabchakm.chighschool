@@ -1,0 +1,23 @@
+{
+  "overview": "A full-featured school website for BAISHNABCHAK M.C. HIGH SCHOOL with bilingual (Bengali/English) support, admin-managed notice board, login-protected teacher and student directories, and a complete admin panel for staff.",
+  "features": [
+    "Bilingual Bengali/English toggle across the entire site",
+    "Public homepage with hero section, pinned notices, and latest news",
+    "Admin-managed notice board with categories, search, and pin support",
+    "Login-protected teacher and student directories",
+    "Full admin panel for managing notices, teachers, and students",
+    "About, Admissions, and Contact pages with school information",
+    "Sample content preloaded with realistic Bengali school data"
+  ],
+  "category": "education",
+  "tags": [
+    "school",
+    "education",
+    "bengali",
+    "bilingual",
+    "notice-board",
+    "admin-panel",
+    "internet-identity"
+  ],
+  "last_updated": "2026-04-24T06:10:32.529Z"
+}
